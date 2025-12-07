@@ -47,20 +47,42 @@ body {
     
 .home-screen {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center; /* vertical center */
+  justify-content: center;
   width: 100%;
-  min-height: calc(var(--vh, 1vh) * 100 - 40px);
 }
 
 
     .home-container {
-      text-align: center;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      text-align: left;
       color: #0f172a;
-      padding: 32px 24px 40px;
-      max-width: 460px;
+      padding: 32px 32px 40px;
+      max-width: 960px;
       width: 100%;
+    }
+
+    .home-left, .home-right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .home-levels {
+      width: 100%;
+    }
+
+    .home-gender-wrapper {
+      margin-top: 8px;
+      margin-bottom: 8px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
     }
 
     
@@ -415,12 +437,6 @@ body {
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
     }
-
-/* Home page: centra verticalmente la card rispetto alla pagina */
-#homePage.page-container,
-#homePage {
-  align-items: center;
-}
 
     .app { padding-bottom:40px; margin: 20px; padding:0; width: calc(100% - 40px); height: calc(100% - 40px); background:white; border-radius:12px; position:relative; z-index:1; display:flex; flex-direction:column; }
 
@@ -2812,8 +2828,11 @@ body {
 <!-- ===========================
      HOME
      =========================== -->
+
 <div id="homeScreen" class="home-screen">
-  <div class="home-container" style="display:flex;flex-direction:row;gap:20px;align-items:center;"><div class="home-left"><div class="home-rainbow-graphic">
+  <div class="home-container">
+    <div class="home-left">
+<div class="home-rainbow-graphic">
       
       <svg viewBox="0 0 300 180" aria-hidden="true">
         <defs>
@@ -2866,7 +2885,10 @@ body {
               filter="url(#liquidGlassRainbow)"/>
       </svg>
 
-    </div><h1 class="rainbow-title"><span>M</span><span>u</span><span>s</span><span>i</span><span>c</span><span>&nbsp;</span><span>R</span><span>a</span><span>i</span><span>n</span><span>b</span><span>o</span><span>w</span></h1><div class="home-gender-select">
+    </div>
+      <h1 class="rainbow-title"><span>M</span><span>u</span><span>s</span><span>i</span><span>c</span><span>&nbsp;</span><span>R</span><span>a</span><span>i</span><span>n</span><span>b</span><span>o</span><span>w</span></h1>
+      <div class="home-gender-wrapper">
+<div class="home-gender-select">
         <label class="home-gender-option">
           <input type="radio" name="gender" value="M" checked />
           <span>Maschio</span>
@@ -2875,7 +2897,12 @@ body {
           <input type="radio" name="gender" value="F" />
           <span>Femmina</span>
         </label>
-      </div><div class="home-version-label">Build p1.024</div></div><div class="home-right"><div class="home-levels">
+      </div>
+      </div>
+      <div class="home-version-label">Build p1.041</div>
+    </div>
+    <div class="home-right">
+<div class="home-levels">
       <button id="btnOpenLevelSelect" class="home-level-btn home-level-main" type="button">
         Scegli il livello
       </button>
@@ -2893,49 +2920,9 @@ body {
       </button>
     </div>
 
-    
-    
+    </div>
   </div>
 </div>
-
-
-</div></div>
-
-    <h1 class="rainbow-title"><span>M</span><span>u</span><span>s</span><span>i</span><span>c</span><span>&nbsp;</span><span>R</span><span>a</span><span>i</span><span>n</span><span>b</span><span>o</span><span>w</span></h1>
-    <div class="home-subtitle" style="display:none"></div>
-    <div class="home-gender-select">
-        <label class="home-gender-option">
-          <input type="radio" name="gender" value="M" checked />
-          <span>Maschio</span>
-        </label>
-        <label class="home-gender-option">
-          <input type="radio" name="gender" value="F" />
-          <span>Femmina</span>
-        </label>
-      </div>
-
-    <div class="home-version-label">Build p1.024</div>
-
-    </div>
-
-    
-
-      <button id="homePlayBtn" class="home-level-btn home-level-play home-play-disabled" type="button" disabled>
-        Modalità Play
-      </button>
-      <button id="homeLearnMainBtn" class="home-level-btn home-level-learn" type="button">
-        Impara
-      </button>
-      <button id="homeTrophyBtn" class="home-level-btn home-level-trophy" type="button">
-        Scrigno dei trofei
-      </button>
-    </div>
-
-    
-    
-  </div>
-</div>
-
 
 <div id="levelSelectOverlay" class="level-select-overlay">
   <div class="level-select-box">
