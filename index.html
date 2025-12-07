@@ -2724,7 +2724,7 @@ body {
 
 
 <style>
-/* Build p1.047 – rimozione barra medaglie in tutti i livelli */
+/* Build p1.067 – rimozione barra medaglie in tutti i livelli */
 #level1Page .medals-panel-container,
 #level2Page .medals-panel-container,
 #level3Page .medals-panel-container,
@@ -2751,27 +2751,17 @@ body {
 
 <style>
 /* Build p1.018 – rimozione titoli in Learn e Play */
-#learnNotesPage .top-row h1,
-#learnTempoPage .top-row h1,
-#playPage .top-row h1 {
-    display: none !important;
-}
+
 </style>
 
 
 <style>
-#learnNotesPage .top-row h1,
-#learnTempoPage .top-row h1,
-#playPage .top-row h1 {
-  display:none!important;
 }
 </style>
 
 
 <style>
 /* Build p1.018 – nasconde solo la barra medaglie in Impara Tempo */
-#learnTempoPage .medals-panel-container {
-  display: none !important;
 }
 </style>
 
@@ -2828,6 +2818,57 @@ body {
   font-size: 1.9rem;
   line-height: 1;
   margin: 0;
+}
+</style>
+
+<style>
+/* Titolo arcobaleno nelle pagine Impara: leggermente più piccolo ma allineato alle icone */
+#learnNotesPage .top-row .rainbow-title-level,
+#learnTempoPage .top-row .rainbow-title-level {
+  font-size: 1.9rem;
+  line-height: 1;
+  margin: 0;
+}
+</style>
+
+
+<style>
+/* Sposta di 100px a destra il titolo nella Mappa delle Note */
+#learnNotesPage .top-row .rainbow-title-level {
+  transform: translateX(200px);
+}
+</style>
+
+
+<style>
+#learnTempoPage .medals-panel-container{
+ display:none !important;
+}
+</style>
+
+
+<style>
+
+</style>
+
+
+<style>
+/* Bigger, brighter, bouncing icons for Impara popup */
+
+
+@keyframes bounceIcon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+</style>
+
+
+<style>
+#learnSelectOverlay .level-select-btn .home-level-btn-label {
+  margin-left: 40px !important;
+  font-size: 3.4rem !important;
+  filter: brightness(1.4);
+  animation: bounceIcon 1.2s infinite ease-in-out;
 }
 </style>
 
@@ -2974,10 +3015,10 @@ body {
     <p class="level-select-subtitle">Scegli cosa vuoi allenare.</p>
     <div class="level-select-grid">
       <button type="button" id="homeLearnNotesBtn" class="level-select-btn">
-        <span class="home-level-btn-label">Note</span>
+        <span class="home-level-btn-label" aria-label="Impara le note">🎵</span>
       </button>
       <button type="button" id="homeLearnTempoBtn" class="level-select-btn">
-        <span class="home-level-btn-label">Tempo</span>
+        <span class="home-level-btn-label" aria-label="Impara il tempo">⏱️</span>
       </button>
     </div>
     <div class="level-select-actions">
@@ -3203,9 +3244,9 @@ body {
       <div class="top-row">
         <div class="top-left-controls">
           <button class="menu-btn" id="menuBtnLearn" aria-label="Menu">🏠</button>
+          <h1 class="rainbow-title rainbow-title-level"><span>M</span><span>u</span><span>s</span><span>i</span><span>c</span><span>&nbsp;</span><span>R</span><span>a</span><span>i</span><span>n</span><span>b</span><span>o</span><span>w</span></h1>
           
         </div>
-        <h1 class="rainbow-title"><span>M</span><span>u</span><span>s</span><span>i</span><span>c</span><span>&nbsp;</span><span>R</span><span>a</span><span>i</span><span>n</span><span>b</span><span>o</span><span>w</span></h1>
         <div class="top-right-controls">
           <button class="clef-btn clef-treble-btn active-clef" id="clefTrebleBtnLearn" aria-label="Chiave di violino">&#119070;</button>
           <button class="clef-btn clef-bass-btn" id="clefBassBtnLearn" aria-label="Chiave di basso">&#119074;</button>
@@ -3714,6 +3755,7 @@ body {
         <div class="top-left-controls">
           <button class="reset-btn" id="resetBtnTempo" aria-label="Reset">↻</button>
           <button class="menu-btn" id="menuBtnTempo" aria-label="Menu">🏠</button>
+          <h1 class="rainbow-title rainbow-title-level"><span>M</span><span>u</span><span>s</span><span>i</span><span>c</span><span>&nbsp;</span><span>R</span><span>a</span><span>i</span><span>n</span><span>b</span><span>o</span><span>w</span></h1>
           <button class="trophy-btn" id="trophyBtnTempo" aria-label="Trofei">🏆</button>
           
           
@@ -3721,7 +3763,6 @@ body {
             Errori: 0
           </div>
         </div>
-        <h1 class="rainbow-title"><span>M</span><span>u</span><span>s</span><span>i</span><span>c</span><span>&nbsp;</span><span>R</span><span>a</span><span>i</span><span>n</span><span>b</span><span>o</span><span>w</span></h1>
         <div class="top-right-controls">
           <button class="clef-btn clef-treble-btn active-clef" id="clefTrebleBtnTempo" aria-label="Chiave di violino">&#119070;</button>
           <button class="clef-btn clef-bass-btn" id="clefBassBtnTempo" aria-label="Chiave di basso">&#119074;</button>
@@ -5088,8 +5129,8 @@ try {
     updateHintLabelL1();
   }
 
-  const startX = 120;
-  const endX = 760;
+  const startX = 180;
+  const endX = 820;
   const step = (endX - startX) / Math.max(1, (count - 1));
 
   let lastName = null;
@@ -5624,8 +5665,8 @@ function createNotes() {
   consecutiveErrors = 0;
   updateStatus();
 
-  const startX = 120;
-  const endX = 760;
+  const startX = 180;
+  const endX = 820;
   const step = (endX - startX) / Math.max(1, (count - 1));
 
   let lastName = null;
@@ -5955,8 +5996,8 @@ function createNotesL3() {
   consecutiveErrorsL3 = 0;
   updateStatusL3();
 
-  const startX = 120;
-  const endX = 760;
+  const startX = 180;
+  const endX = 820;
   const step = (endX - startX) / Math.max(1, (count - 1));
 
   let lastName = null;
@@ -6415,8 +6456,8 @@ function createNotesL4() {
   lastHitTimeL4 = null;
   updateErrorPill(errorPillL4, consecutiveErrorsL4, 7);
 
-  const startX = 120;
-  const endX = 760;
+  const startX = 180;
+  const endX = 820;
 
   // Decidi il numero di battute in base alle medaglie vinte
   const measureCount = (totalMedals >= 5) ? 3 : 2;
@@ -6911,8 +6952,8 @@ function createNotesTempo() {
   lastHitTimeTempo = null;
   updateErrorPill(errorPillTempo, consecutiveErrorsTempo, 7);
 
-  const startX = 120;
-  const endX = 760;
+  const startX = 180;
+  const endX = 820;
 
   const measureCount = 2;
 
