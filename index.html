@@ -2720,19 +2720,11 @@ body {
 }
  .learn-popup button {text-align:center;} </style>
 
-<style>
-/* Build p1.069 – rimozione titoli in tutti i livelli */
-#level1Page .top-row h1,
-#level2Page .top-row h1,
-#level3Page .top-row h1,
-#level4Page .top-row h1 {
-    display: none !important;
-}
-</style>
+
 
 
 <style>
-/* Build p1.018 – rimozione barra medaglie in tutti i livelli */
+/* Build p1.047 – rimozione barra medaglie in tutti i livelli */
 #level1Page .medals-panel-container,
 #level2Page .medals-panel-container,
 #level3Page .medals-panel-container,
@@ -2823,6 +2815,19 @@ body {
 /* Build override: nasconde tutte le linee di taglio (ledger-line) ovunque */
 .ledger-line {
   display: none !important;
+}
+</style>
+
+
+<style>
+/* Titolo arcobaleno nei livelli 1–4, centrato e alto quanto le icone */
+#level1Page .top-row .rainbow-title-level,
+#level2Page .top-row .rainbow-title-level,
+#level3Page .top-row .rainbow-title-level,
+#level4Page .top-row .rainbow-title-level {
+  font-size: 1.9rem;
+  line-height: 1;
+  margin: 0;
 }
 </style>
 
@@ -3373,7 +3378,7 @@ body {
             Errori: 0
           </div>
         </div>
-        <h1 class="rainbow-title"><span>M</span><span>u</span><span>s</span><span>i</span><span>c</span><span>&nbsp;</span><span>R</span><span>a</span><span>i</span><span>n</span><span>b</span><span>o</span><span>w</span></h1>
+        <h1 class="rainbow-title rainbow-title-level"><span>M</span><span>u</span><span>s</span><span>i</span><span>c</span><span>&nbsp;</span><span>R</span><span>a</span><span>i</span><span>n</span><span>b</span><span>o</span><span>w</span></h1>
         <div class="top-right-controls">
           <button class="clef-btn clef-treble-btn active-clef" id="clefTrebleBtnL1" aria-label="Chiave di violino">&#119070;</button>
           <button class="clef-btn clef-bass-btn" id="clefBassBtnL1" aria-label="Chiave di basso">&#119074;</button>
@@ -3461,7 +3466,7 @@ body {
             Errori: 0
           </div>
         </div>
-        <h1 class="rainbow-title"><span>M</span><span>u</span><span>s</span><span>i</span><span>c</span><span>&nbsp;</span><span>R</span><span>a</span><span>i</span><span>n</span><span>b</span><span>o</span><span>w</span></h1>
+        <h1 class="rainbow-title rainbow-title-level"><span>M</span><span>u</span><span>s</span><span>i</span><span>c</span><span>&nbsp;</span><span>R</span><span>a</span><span>i</span><span>n</span><span>b</span><span>o</span><span>w</span></h1>
         <div class="top-right-controls">
           <button class="clef-btn clef-treble-btn active-clef" id="clefTrebleBtnL2" aria-label="Chiave di violino">&#119070;</button>
           <button class="clef-btn clef-bass-btn" id="clefBassBtnL2" aria-label="Chiave di basso">&#119074;</button>
@@ -3542,7 +3547,7 @@ body {
             Errori: 0
           </div>
         </div>
-        <h1 class="rainbow-title"><span>M</span><span>u</span><span>s</span><span>i</span><span>c</span><span>&nbsp;</span><span>R</span><span>a</span><span>i</span><span>n</span><span>b</span><span>o</span><span>w</span></h1>
+        <h1 class="rainbow-title rainbow-title-level"><span>M</span><span>u</span><span>s</span><span>i</span><span>c</span><span>&nbsp;</span><span>R</span><span>a</span><span>i</span><span>n</span><span>b</span><span>o</span><span>w</span></h1>
         <div class="top-right-controls">
           <button class="clef-btn clef-treble-btn active-clef" id="clefTrebleBtnL3" aria-label="Chiave di violino">&#119070;</button>
           <button class="clef-btn clef-bass-btn" id="clefBassBtnL3" aria-label="Chiave di basso">&#119074;</button>
@@ -3623,7 +3628,7 @@ body {
             Errori: 0
           </div>
         </div>
-        <h1 class="rainbow-title"><span>M</span><span>u</span><span>s</span><span>i</span><span>c</span><span>&nbsp;</span><span>R</span><span>a</span><span>i</span><span>n</span><span>b</span><span>o</span><span>w</span></h1>
+        <h1 class="rainbow-title rainbow-title-level"><span>M</span><span>u</span><span>s</span><span>i</span><span>c</span><span>&nbsp;</span><span>R</span><span>a</span><span>i</span><span>n</span><span>b</span><span>o</span><span>w</span></h1>
         <div class="top-right-controls">
           <button class="clef-btn clef-treble-btn active-clef" id="clefTrebleBtnL4" aria-label="Chiave di violino">&#119070;</button>
           <button class="clef-btn clef-bass-btn" id="clefBassBtnL4" aria-label="Chiave di basso">&#119074;</button>
