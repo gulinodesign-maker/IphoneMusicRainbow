@@ -1296,6 +1296,7 @@ body {
     0 10px 22px rgba(15,23,42,0.35),
     inset 0 0 14px rgba(255,255,255,0.75);
   border-radius: 18px;
+  overflow: visible;
 }
 
     svg.staff {
@@ -1304,7 +1305,7 @@ body {
       display: block;
       margin: 0 auto;
       cursor: pointer;
-      overflow: visible; /* Non taglia mai note, pallini e glow fuori dal box interno */
+      overflow: visible;
     }
 
     .note-circle {
@@ -2305,6 +2306,7 @@ body {
     0 10px 22px rgba(15,23,42,0.35),
     inset 0 0 14px rgba(255,255,255,0.75);
   border-radius: 18px;
+  overflow: visible;
 }
 
 
@@ -2694,7 +2696,7 @@ body {
  .learn-popup button {text-align:center;} </style>
 
 <style>
-/* Build p1.010 – rimozione titoli in tutti i livelli */
+/* Build p1.016 – rimozione titoli in tutti i livelli */
 #level1Page .top-row h1,
 #level2Page .top-row h1,
 #level3Page .top-row h1,
@@ -2705,7 +2707,7 @@ body {
 
 
 <style>
-/* Build p1.010 – rimozione barra medaglie in tutti i livelli */
+/* Build p1.016 – rimozione barra medaglie in tutti i livelli */
 #level1Page .medals-panel-container,
 #level2Page .medals-panel-container,
 #level3Page .medals-panel-container,
@@ -2716,7 +2718,7 @@ body {
 
 
 <style>
-/* Build p1.010 – rimuove la top panel ma lascia le icone */
+/* Build p1.016 – rimuove la top panel ma lascia le icone */
 .top-panel {
   background: none !important;
   border: none !important;
@@ -2726,6 +2728,33 @@ body {
 }
 .top-row {
   margin: 0 !important;
+}
+</style>
+
+
+<style>
+/* Build p1.016 – rimozione titoli in Learn e Play */
+#learnNotesPage .top-row h1,
+#learnTempoPage .top-row h1,
+#playPage .top-row h1 {
+    display: none !important;
+}
+</style>
+
+
+<style>
+#learnNotesPage .top-row h1,
+#learnTempoPage .top-row h1,
+#playPage .top-row h1 {
+  display:none!important;
+}
+</style>
+
+
+<style>
+/* Build p1.016 – nasconde solo la barra medaglie in Impara Tempo */
+#learnTempoPage .medals-panel-container {
+  display: none !important;
 }
 </style>
 
@@ -3124,7 +3153,7 @@ body {
           </div>
 
     <div class="staff-container">
-      <svg id="learnStaffSvg" class="staff" viewBox="0 0 1000 200">
+      <svg id="learnStaffSvg" class="staff" overflow="visible" viewBox="0 0 1000 200">
         <defs>
           <linearGradient id="rainbowStroke" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stop-color="#ef4444"/>
@@ -3167,41 +3196,41 @@ body {
         <g id="learnNotesGroupTreble">
           <!-- RIGHI (dal basso: MI - SOL - SI - RE - FA) -->
           <g class="learn-note">
-            <circle cx="150" cy="200" r="10" class="note-circle learn-mi"></circle>
+            <circle cx="150" cy="153.85" r="10" class="note-circle learn-mi"></circle>
             
           </g>
           <g class="learn-note">
-            <circle cx="210" cy="180" r="10" class="note-circle learn-sol"></circle>
+            <circle cx="210" cy="138.46" r="10" class="note-circle learn-sol"></circle>
             
           </g>
           <g class="learn-note">
-            <circle cx="270" cy="160" r="10" class="note-circle learn-si"></circle>
+            <circle cx="270" cy="123.08" r="10" class="note-circle learn-si"></circle>
             
           </g>
           <g class="learn-note">
-            <circle cx="330" cy="140" r="10" class="note-circle learn-re"></circle>
+            <circle cx="330" cy="107.69" r="10" class="note-circle learn-re"></circle>
             
           </g>
           <g class="learn-note">
-            <circle cx="390" cy="120" r="10" class="note-circle learn-fa"></circle>
+            <circle cx="390" cy="92.31" r="10" class="note-circle learn-fa"></circle>
             
           </g>
 
           <!-- SPAZI (dal basso: FA - LA - DO - MI) -->
           <g class="learn-note">
-            <circle cx="470" cy="190" r="10" class="note-circle learn-fa"></circle>
+            <circle cx="470" cy="146.15" r="10" class="note-circle learn-fa"></circle>
             
           </g>
           <g class="learn-note">
-            <circle cx="530" cy="170" r="10" class="note-circle learn-la"></circle>
+            <circle cx="530" cy="130.77" r="10" class="note-circle learn-la"></circle>
             
           </g>
           <g class="learn-note">
-            <circle cx="590" cy="150" r="10" class="note-circle learn-do"></circle>
+            <circle cx="590" cy="115.38" r="10" class="note-circle learn-do"></circle>
             
           </g>
           <g class="learn-note">
-            <circle cx="650" cy="130" r="10" class="note-circle learn-mi"></circle>
+            <circle cx="650" cy="100.00" r="10" class="note-circle learn-mi"></circle>
             
           </g>
         </g>
@@ -3210,41 +3239,41 @@ body {
         <g id="learnNotesGroupBass" style="display:none;">
           <!-- RIGHI (dal basso: SOL - SI - RE - FA - LA) -->
           <g class="learn-note">
-            <circle cx="150" cy="200" r="10" class="note-circle learn-sol"></circle>
+            <circle cx="150" cy="153.85" r="10" class="note-circle learn-sol"></circle>
             
           </g>
           <g class="learn-note">
-            <circle cx="210" cy="180" r="10" class="note-circle learn-si"></circle>
+            <circle cx="210" cy="138.46" r="10" class="note-circle learn-si"></circle>
             
           </g>
           <g class="learn-note">
-            <circle cx="270" cy="160" r="10" class="note-circle learn-re"></circle>
+            <circle cx="270" cy="123.08" r="10" class="note-circle learn-re"></circle>
             
           </g>
           <g class="learn-note">
-            <circle cx="330" cy="140" r="10" class="note-circle learn-fa"></circle>
+            <circle cx="330" cy="107.69" r="10" class="note-circle learn-fa"></circle>
             
           </g>
           <g class="learn-note">
-            <circle cx="390" cy="120" r="10" class="note-circle learn-la"></circle>
+            <circle cx="390" cy="92.31" r="10" class="note-circle learn-la"></circle>
             
           </g>
 
           <!-- SPAZI (dal basso: LA - DO - MI - SOL) -->
           <g class="learn-note">
-            <circle cx="470" cy="190" r="10" class="note-circle learn-la"></circle>
+            <circle cx="470" cy="146.15" r="10" class="note-circle learn-la"></circle>
             
           </g>
           <g class="learn-note">
-            <circle cx="530" cy="170" r="10" class="note-circle learn-do"></circle>
+            <circle cx="530" cy="130.77" r="10" class="note-circle learn-do"></circle>
             
           </g>
           <g class="learn-note">
-            <circle cx="590" cy="150" r="10" class="note-circle learn-mi"></circle>
+            <circle cx="590" cy="115.38" r="10" class="note-circle learn-mi"></circle>
             
           </g>
           <g class="learn-note">
-            <circle cx="650" cy="130" r="10" class="note-circle learn-sol"></circle>
+            <circle cx="650" cy="100.00" r="10" class="note-circle learn-sol"></circle>
             
           </g>
         </g>
@@ -3302,7 +3331,7 @@ body {
     </div>
 
     
-      <svg id="staffSvgL1" class="staff" viewBox="0 0 1000 200">
+      <svg id="staffSvgL1" class="staff" overflow="visible" viewBox="0 0 1000 200">
         <defs>
           <linearGradient id="rainbowStroke" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stop-color="#ef4444"/>
@@ -3389,7 +3418,7 @@ body {
     </div>
 
     
-      <svg id="staffSvg" class="staff" viewBox="0 0 1000 200">
+      <svg id="staffSvg" class="staff" overflow="visible" viewBox="0 0 1000 200">
         <defs>
           <linearGradient id="rainbowStroke" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stop-color="#ef4444"/>
@@ -3470,7 +3499,7 @@ body {
     </div>
 
     
-      <svg id="staffSvgL3" class="staff" viewBox="0 0 1000 200">
+      <svg id="staffSvgL3" class="staff" overflow="visible" viewBox="0 0 1000 200">
         <defs>
           <linearGradient id="rainbowStroke" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stop-color="#ef4444"/>
@@ -3560,7 +3589,7 @@ body {
     </div>
 
     
-      <svg id="staffSvgL4" class="staff" viewBox="0 0 1000 200">
+      <svg id="staffSvgL4" class="staff" overflow="visible" viewBox="0 0 1000 200">
         <defs>
           <linearGradient id="rainbowStroke" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stop-color="#ef4444"/>
@@ -3653,7 +3682,7 @@ body {
     </div>
 
     
-      <svg id="staffSvgTempo" class="staff" viewBox="0 0 1000 200">
+      <svg id="staffSvgTempo" class="staff" overflow="visible" viewBox="0 0 1000 200">
         <defs>
           <linearGradient id="rainbowStroke" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stop-color="#ef4444"/>
@@ -3739,7 +3768,7 @@ body {
     </div>
 
     
-      <svg id="staffSvgPlay" class="staff" viewBox="0 0 1000 200">
+      <svg id="staffSvgPlay" class="staff" overflow="visible" viewBox="0 0 1000 200">
         <line x1="20" y1="92.31" x2="980" y2="92.31" stroke="#111827" stroke-width="2"/>
         <line x1="20" y1="107.69" x2="980" y2="107.69" stroke="#111827" stroke-width="2"/>
         <line x1="20" y1="123.08" x2="980" y2="123.08" stroke="#111827" stroke-width="2"/>
@@ -6833,8 +6862,9 @@ function createNotesTempo() {
     const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
     line.setAttribute("x1", barX);
     line.setAttribute("x2", barX);
-    line.setAttribute("y1", 120);
-    line.setAttribute("y2", 200);
+    // Allinea la linea di battuta alle 5 linee del pentagramma (92.31–153.85)
+    line.setAttribute("y1", 92.31);
+    line.setAttribute("y2", 153.85);
     line.setAttribute("stroke", "#111827");
     line.setAttribute("stroke-width", "2");
     line.classList.add("measure-bar-l4");
