@@ -49,8 +49,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center; /* vertical center */
   width: 100%;
+  min-height: calc(var(--vh, 1vh) * 100 - 40px);
 }
 
 
@@ -414,6 +415,12 @@ body {
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
     }
+
+/* Home page: centra verticalmente la card rispetto alla pagina */
+#homePage.page-container,
+#homePage {
+  align-items: center;
+}
 
     .app { padding-bottom:40px; margin: 20px; padding:0; width: calc(100% - 40px); height: calc(100% - 40px); background:white; border-radius:12px; position:relative; z-index:1; display:flex; flex-direction:column; }
 
@@ -2244,12 +2251,10 @@ body {
   margin: 0;
 }
 
-/* In portrait: blocca il gioco e mostra solo il messaggio */
+/* In portrait: mostra il messaggio e blocca l'app sotto */
 @media (orientation: portrait) {
-  /* La home e il gioco sono visibili anche in verticale;
-     l'overlay non viene usato in questa modalità */
   #rotateOverlay {
-    display: none;
+    display: flex;
   }
 }
 
@@ -2696,7 +2701,7 @@ body {
  .learn-popup button {text-align:center;} </style>
 
 <style>
-/* Build p1.016 – rimozione titoli in tutti i livelli */
+/* Build p1.018 – rimozione titoli in tutti i livelli */
 #level1Page .top-row h1,
 #level2Page .top-row h1,
 #level3Page .top-row h1,
@@ -2707,7 +2712,7 @@ body {
 
 
 <style>
-/* Build p1.016 – rimozione barra medaglie in tutti i livelli */
+/* Build p1.018 – rimozione barra medaglie in tutti i livelli */
 #level1Page .medals-panel-container,
 #level2Page .medals-panel-container,
 #level3Page .medals-panel-container,
@@ -2718,7 +2723,7 @@ body {
 
 
 <style>
-/* Build p1.016 – rimuove la top panel ma lascia le icone */
+/* Build p1.018 – rimuove la top panel ma lascia le icone */
 .top-panel {
   background: none !important;
   border: none !important;
@@ -2733,7 +2738,7 @@ body {
 
 
 <style>
-/* Build p1.016 – rimozione titoli in Learn e Play */
+/* Build p1.018 – rimozione titoli in Learn e Play */
 #learnNotesPage .top-row h1,
 #learnTempoPage .top-row h1,
 #playPage .top-row h1 {
@@ -2752,9 +2757,44 @@ body {
 
 
 <style>
-/* Build p1.016 – nasconde solo la barra medaglie in Impara Tempo */
+/* Build p1.018 – nasconde solo la barra medaglie in Impara Tempo */
 #learnTempoPage .medals-panel-container {
   display: none !important;
+}
+</style>
+
+
+<style>
+/* Build p1.018 – Home in landscape: titolo+arcobaleno a sinistra, tasti a destra */
+@media (orientation: landscape) {
+  .home-screen {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .home-container {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+    column-gap: 24px;
+    max-width: 1000px;
+    text-align: left;
+  }
+
+  /* Colonna sinistra: arcobaleno + titolo + sottotitolo */
+  .home-rainbow-graphic,
+  .home-screen .rainbow-title,
+  .home-subtitle {
+    grid-column: 1;
+  }
+
+  /* Colonna destra: selezione giocatore + tasti */
+  .home-gender-select,
+  .home-player-box,
+  .home-levels,
+  .home-audio-reset {
+    grid-column: 2;
+  }
 }
 </style>
 
@@ -2773,8 +2813,7 @@ body {
      HOME
      =========================== -->
 <div id="homeScreen" class="home-screen">
-  <div class="home-container">
-    <div class="home-rainbow-graphic">
+  <div class="home-container" style="display:flex;flex-direction:row;gap:20px;align-items:center;"><div class="home-left"><div class="home-rainbow-graphic">
       
       <svg viewBox="0 0 300 180" aria-hidden="true">
         <defs>
@@ -2827,11 +2866,7 @@ body {
               filter="url(#liquidGlassRainbow)"/>
       </svg>
 
-    </div>
-
-    <h1 class="rainbow-title"><span>M</span><span>u</span><span>s</span><span>i</span><span>c</span><span>&nbsp;</span><span>R</span><span>a</span><span>i</span><span>n</span><span>b</span><span>o</span><span>w</span></h1>
-    <div class="home-subtitle">Scegli chi gioca e il livello</div>
-    <div class="home-gender-select">
+    </div><h1 class="rainbow-title"><span>M</span><span>u</span><span>s</span><span>i</span><span>c</span><span>&nbsp;</span><span>R</span><span>a</span><span>i</span><span>n</span><span>b</span><span>o</span><span>w</span></h1><div class="home-gender-select">
         <label class="home-gender-option">
           <input type="radio" name="gender" value="M" checked />
           <span>Maschio</span>
@@ -2840,12 +2875,7 @@ body {
           <input type="radio" name="gender" value="F" />
           <span>Femmina</span>
         </label>
-      </div>
-
-
-    </div>
-
-    <div class="home-levels">
+      </div><div class="home-version-label">Build p1.024</div></div><div class="home-right"><div class="home-levels">
       <button id="btnOpenLevelSelect" class="home-level-btn home-level-main" type="button">
         Scegli il livello
       </button>
@@ -2864,14 +2894,45 @@ body {
     </div>
 
     
-    <label class="home-test-switch">
-      <span class="home-test-label">Test</span>
-      <div class="home-test-toggle-wrapper">
-        <input type="checkbox" id="homeTestToggle" class="home-test-toggle-input">
-        <span class="home-test-toggle-slider"></span>
+    
+  </div>
+</div>
+
+
+</div></div>
+
+    <h1 class="rainbow-title"><span>M</span><span>u</span><span>s</span><span>i</span><span>c</span><span>&nbsp;</span><span>R</span><span>a</span><span>i</span><span>n</span><span>b</span><span>o</span><span>w</span></h1>
+    <div class="home-subtitle" style="display:none"></div>
+    <div class="home-gender-select">
+        <label class="home-gender-option">
+          <input type="radio" name="gender" value="M" checked />
+          <span>Maschio</span>
+        </label>
+        <label class="home-gender-option">
+          <input type="radio" name="gender" value="F" />
+          <span>Femmina</span>
+        </label>
       </div>
-    </label>
-    <div class="home-version-label">Versione 3.320</div>
+
+    <div class="home-version-label">Build p1.024</div>
+
+    </div>
+
+    
+
+      <button id="homePlayBtn" class="home-level-btn home-level-play home-play-disabled" type="button" disabled>
+        Modalità Play
+      </button>
+      <button id="homeLearnMainBtn" class="home-level-btn home-level-learn" type="button">
+        Impara
+      </button>
+      <button id="homeTrophyBtn" class="home-level-btn home-level-trophy" type="button">
+        Scrigno dei trofei
+      </button>
+    </div>
+
+    
+    
   </div>
 </div>
 
