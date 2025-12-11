@@ -2574,7 +2574,16 @@ body {
     #88f7e2 0%, #5cdccb 40%, #36b5aa 75%, #1c8f82 100%) !important;
 }
 
- .learn-popup button {text-align:center;} </style>
+ .learn-popup button {text-align:center;} 
+/* Alza la tastiera di 50px nei livelli 2, 3, 4 e Play & Impara Tempo */
+#level2Page .keyboard-container,
+#level3Page .keyboard-container,
+#level4Page .keyboard-container,
+#learnTempoPage .keyboard-container {
+    margin-top: -30px !important;
+}
+
+</style>
 
 <style>
 /* Raddoppio altezza tasti Livello 1 e Mappa */
@@ -2724,7 +2733,7 @@ body {
 
 
 <style>
-/* Build p1.067 – rimozione barra medaglie in tutti i livelli */
+/* Build p1.043 – rimozione barra medaglie in tutti i livelli */
 #level1Page .medals-panel-container,
 #level2Page .medals-panel-container,
 #level3Page .medals-panel-container,
@@ -2735,7 +2744,7 @@ body {
 
 
 <style>
-/* Build p1.018 – rimuove la top panel ma lascia le icone */
+/* Build p1.043 – rimuove la top panel ma lascia le icone */
 .top-panel {
   background: none !important;
   border: none !important;
@@ -2750,7 +2759,7 @@ body {
 
 
 <style>
-/* Build p1.018 – rimozione titoli in Learn e Play */
+/* Build p1.043 – rimozione titoli in Learn e Play */
 
 </style>
 
@@ -2761,13 +2770,13 @@ body {
 
 
 <style>
-/* Build p1.018 – nasconde solo la barra medaglie in Impara Tempo */
+/* Build p1.043 – nasconde solo la barra medaglie in Impara Tempo */
 }
 </style>
 
 
 <style>
-/* Build p1.018 – Home in landscape: titolo+arcobaleno a sinistra, tasti a destra */
+/* Build p1.043 – Home in landscape: titolo+arcobaleno a sinistra, tasti a destra */
 @media (orientation: landscape) {
   .home-screen {
     flex-direction: row;
@@ -2957,7 +2966,7 @@ body {
         </label>
       </div>
       </div>
-      <div class="home-version-label">Build p1.042</div>
+      <div class="home-version-label">Build p1.043</div>
     </div>
     <div class="home-right">
 <div class="home-levels">
