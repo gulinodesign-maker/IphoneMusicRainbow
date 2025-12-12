@@ -4101,11 +4101,25 @@ const AudioContextWeb = window.AudioContext || window.webkitAudioContext;
 let audioCtx = null;
 let audioUnlocked = false;
 let hasPlayedHomeJingle = false;
+let hasInitAudioPref = false;
+
+function loadAudioPref() {
+  try {
+    const v = localStorage.getItem("mr_audio_enabled");
+    if (v === null) return true; // default: audio ON
+    return v === "1";
+  } catch(e) { return true; }
+}
+
+function saveAudioPref(enabled) {
+  try { localStorage.setItem("mr_audio_enabled", enabled ? "1" : "0"); } catch(e) {}
+}
+
 let homeIntroTimeoutId = null;
 let homeIntroTimerElapsed = false;
 
 // Stato globale audio: spento di default
-let audioEnabled = false;
+let audioEnabled = true;
 
 // Stato globale per i jingle finali degli spartiti
 let isJinglePlaying = false;
@@ -4409,6 +4423,7 @@ function resetAudioOnEnable() {
 function setAudioEnabled(enabled) {
   const wasEnabled = audioEnabled;
   audioEnabled = !!enabled;
+  saveAudioPref(audioEnabled);
   updateAudioButtonsUI();
 
   // Se lo stiamo appena attivando, fai un reset veloce dell'audio (per iPad/iOS)
@@ -4416,7 +4431,7 @@ function setAudioEnabled(enabled) {
     resetAudioOnEnable();
 
     // Suona il jingle iniziale do–re–mi solo la prima volta
-    if (!hasPlayedHomeJingle) {
+    if (hasInitAudioPref && !hasPlayedHomeJingle) {
       playHomeJingle();
       hasPlayedHomeJingle = true;
     }
@@ -8052,8 +8067,12 @@ if (btnLevel1) btnLevel1.addEventListener("click", () => { showLevel("level1Page
   
   
 
-  // Imposta audio spento di default e aggiorna subito i pulsanti
-  setAudioEnabled(false);
+  // Inizializza preferenza audio (default ON) senza forzare jingle all'avvio
+  hasInitAudioPref = false;
+  const initialAudio = loadAudioPref();
+  // Imposta stato + UI (la funzione setAudioEnabled salva pref e può suonare un jingle: qui la chiamiamo con hasInitAudioPref=false)
+  setAudioEnabled(initialAudio);
+  hasInitAudioPref = true;
 
   // Inizializza sistema gettoni (non persistenti)
   lastTotalMedalsForTokens = getTotalMedalsCount();
