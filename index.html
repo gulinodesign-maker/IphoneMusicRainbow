@@ -2760,18 +2760,23 @@ body {
 
 
 <style>
-/* Build p1.046 – rimozione barra medaglie in tutti i livelli */
+/* Build p1.050 – rimozione barra medaglie in tutti i livelli */
 #level1Page .medals-panel-container,
 #level2Page .medals-panel-container,
 #level3Page .medals-panel-container,
 #level4Page .medals-panel-container {
     display: none !important;
 }
+
+/* Patch: alza la tastiera di 20px nella pagina 'Impara – Mappa delle note' */
+#learnNotesPage .keyboard-container{
+  transform: translateY(-20px) !important;
+}
 </style>
 
 
 <style>
-/* Build p1.046 – rimuove la top panel ma lascia le icone */
+/* Build p1.050 – rimuove la top panel ma lascia le icone */
 .top-panel {
   background: none !important;
   border: none !important;
@@ -2786,7 +2791,7 @@ body {
 
 
 <style>
-/* Build p1.046 – rimozione titoli in Learn e Play */
+/* Build p1.050 – rimozione titoli in Learn e Play */
 
 </style>
 
@@ -2797,13 +2802,13 @@ body {
 
 
 <style>
-/* Build p1.046 – nasconde solo la barra medaglie in Impara Tempo */
+/* Build p1.050 – nasconde solo la barra medaglie in Impara Tempo */
 }
 </style>
 
 
 <style>
-/* Build p1.046 – Home in landscape: titolo+arcobaleno a sinistra, tasti a destra */
+/* Build p1.050 – Home in landscape: titolo+arcobaleno a sinistra, tasti a destra */
 @media (orientation: landscape) {
   .home-screen {
     flex-direction: row;
@@ -2908,6 +2913,14 @@ body {
 }
 </style>
 
+
+<style>
+/* Build p1.050 – Learn Notes (Mappa): alza di 20px la "tastiera" (bottoni DO–SI) */
+#learnNotesPage .note-buttons-container {
+  transform: translateY(-20px) !important;
+}
+</style>
+
 </head>
 
 <body>
@@ -2993,7 +3006,7 @@ body {
         </label>
       </div>
       </div>
-      <div class="home-version-label">Build p1.046</div>
+      <div class="home-version-label">Build p1.050</div>
     </div>
     <div class="home-right">
 <div class="home-levels">
